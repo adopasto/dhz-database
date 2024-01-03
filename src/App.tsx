@@ -1,23 +1,21 @@
-import './App.css';
-import Button from './components/Button';
+import './App.css'
+import Button from './components/Button'
 
 function App() {
-  function pici() {if(1===1) {
-    return true;
+  function pica() {
+    if (1 === 1) {
+      return true
+    }
+    return false
   }
-return false;
-}
 
-  console.log(pici())
+  console.log(pica())
 
   return (
-
-
- <div className="App">
-    <Button/>
-
-      </div>
-  );
+    <div className="App">
+      <Button />
+    </div>
+  )
 }
 
-export default App;
+export default App
