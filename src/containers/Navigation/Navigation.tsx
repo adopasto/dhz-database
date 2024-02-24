@@ -1,10 +1,14 @@
 import { List, ListItemButton, ListItemText } from '@mui/material'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import Wrapper from '../../components/Wrapper'
 import { ListItemMain, ListItemSub, RootDrawer } from './components/Drawer'
 
 type Props = {}
 function NavigationBar(props: Props) {
+  const location = useLocation()
+  const navigate = useNavigate()
+  const validRoutes = ['/dashboard']
+
   // redux TBD
   // function hanleListItemChange() {
   // TBD
@@ -21,13 +25,19 @@ function NavigationBar(props: Props) {
   // APIs
   // JWT
   // auth
-  const navigate = useNavigate()
 
   const handleLogout = () => {
     // Perform logout logic here
 
     // Redirect to login page
     navigate('/login')
+  }
+
+  if (
+    location.pathname === '/login' ||
+    !validRoutes.includes(location.pathname)
+  ) {
+    return <> </>
   }
 
   return (

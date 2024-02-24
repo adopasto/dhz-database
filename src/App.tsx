@@ -5,7 +5,9 @@ import {
   Routes,
 } from 'react-router-dom'
 
+import { CssBaseline, ThemeProvider, createTheme } from '@mui/material'
 import { Layout } from './components/Layout'
+import NotFound from './components/NotFound'
 import Dashboard from './containers/Dashboard/Dashboard'
 import { Login } from './containers/Login/Login'
 import NavigationBar from './containers/Navigation/Navigation'
@@ -16,8 +18,8 @@ type PrivateRouteProps = {
 
 function App() {
   const PrivateRoute: React.FC<PrivateRouteProps> = ({ element }) => {
-    // Add your authentication logic here
-    const isAuthenticated = true // Replace with your actual authentication check
+    // Add  authentication logic here
+    const isAuthenticated = true
 
     return isAuthenticated ? (
       <>{element}</>
@@ -29,23 +31,27 @@ function App() {
       />
     )
   }
+  const theme = createTheme()
 
-  //  Make login StandAlone
   return (
     <Router>
-      <Layout
-        leftItem={<NavigationBar />}
-        rightItem={
-          <Routes>
-            <Route
-              path="/dashboard"
-              element={<PrivateRoute element={<Dashboard />} />}
-            />
-            <Route path="/*" element={<Navigate to="/login" />} />
-            <Route path="/login" element={<Login />} />
-          </Routes>
-        }
-      />
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Layout
+          leftItem={<NavigationBar />}
+          rightItem={
+            <Routes>
+              <Route
+                path="/dashboard"
+                element={<PrivateRoute element={<Dashboard />} />}
+              />
+              <Route path="/" element={<Navigate to="/login" />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          }
+        />
+      </ThemeProvider>
     </Router>
   )
 }
