@@ -26,8 +26,10 @@ export const Login: React.FC = () => {
   const onSubmit = (data: LoginFormInputs) => {
     console.log(data) // Handle form submission logic here
     // After successful login, redirect to the home page
-    navigate('/dashboard')
+    navigate('/zakladnyPrehlad')
   }
+
+  // cache jwt, auth
 
   return (
     <Grid container spacing={2}>
