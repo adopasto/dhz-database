@@ -16,7 +16,7 @@ import { mockedMemberColumns, mockedMemberRow } from '../../../utils';
     // step2. implement selection of row -> possibility to open modal and see member details instead of having specific page for the  member
 
 
-
+// TODO !!!! -> eslint stopped working after data grid package changes - maybe because of peer dependecies
 export const DataGridTable: React.FC = () => {
 // const VISIBLE_FIELDS = ['id', 'name', 'date', 'rank', 'age', 'address'];
 
