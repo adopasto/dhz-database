@@ -22,7 +22,8 @@ export const Layout = (props: Props) => {
     //     {props.rightItem}
     //   </Grid>
     // </Grid>
-    <Container maxWidth="lg" sx={{ display: 'flex' }}>
+    // TODO Layout is not properly working - on smaller screen drawer is overlaying right content
+    <Container maxWidth="lg" sx={{ display: 'flex', flexDirection:"row" }}>
       {props.leftItem}
       <Container sx={{ flexGrow: 1, padding: 3 }}>{props.rightItem}</Container>
     </Container>

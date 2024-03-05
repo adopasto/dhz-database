@@ -1,4 +1,4 @@
-import { KrajOkresMap, OkresMesto } from '../../types/types'
+import { KrajOkresMap, OkresMesto } from '../../../types/types'
 
 export const krajIds: string[] = ['Kraj 1', 'Kraj 2', 'Kraj 3']
 

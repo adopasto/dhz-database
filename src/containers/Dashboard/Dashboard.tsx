@@ -7,7 +7,7 @@ import {
   SelectChangeEvent,
 } from '@mui/material'
 import { useState } from 'react'
-import { krajIds, krajOkresMap, okresMestoMap } from '../components/mockedData'
+import { krajIds, krajOkresMap, okresMestoMap } from './components/mockedData'
 
 const DashboardPage = () => {
   // TODO: adjust wrapper to be styled Container or use only Container component
@@ -18,19 +18,20 @@ const DashboardPage = () => {
   // ako zorbazit dashboard ? -> mapa - po klik na otvorit button -> zobrazi info pod ? alebo otvori modal ?
   // button disabled dokial nebude vybraty konkretny zbor
 
+  //check leaflet map
   const [selectedKraj, setSelectedKraj] = useState<string>('')
   const [selectedOkres, setSelectedOkres] = useState<string>('')
   const [selectedMesto, setSelectedMesto] = useState<string>('')
 
   const handleKrajChange = (event: SelectChangeEvent<string>) => {
-    const krajId = event.target.value as string
+    const krajId = event.target.value
     setSelectedKraj(krajId)
     setSelectedOkres('') // Reset selected okres and mesto when kraj changes
     setSelectedMesto('')
   }
 
   const handleOkresChange = (event: SelectChangeEvent<string>) => {
-    setSelectedOkres(event.target.value as string)
+    setSelectedOkres(event.target.value)
     setSelectedMesto('') // Reset selected mesto when okres changes
   }
 
@@ -50,6 +51,7 @@ const DashboardPage = () => {
         width: '100vw',
       }}
     >
+      {/* <LeafletMap /> */}
       <div style={{ display: 'flex', gap: '16px' }}>
         <FormControl variant="filled" fullWidth>
           <InputLabel htmlFor="kraj-select">Vyberte Kraj</InputLabel>
@@ -115,6 +117,7 @@ const DashboardPage = () => {
                   {mesto}
                 </MenuItem>
               ))}
+      
           </Select>
         </FormControl>
       </div>
